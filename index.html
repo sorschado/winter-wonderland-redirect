@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+        // Extract the query parameters from the old URL (e.g., ?name=M.%20Oliva)
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name');  // Extract 'name' parameter
+
+        if (name) {
+            // Construct the new URL dynamically based on the extracted 'name'
+            const newUrl = `https://script.google.com/macros/s/AKfycbzJkCCbAY-IXwLa0rd7FdZq-NSJ1yDbAUZSb4DBXjiWz4NugSex8EMSVYM3KZ_mGrtS/exec?name=${encodeURIComponent(name)}`;
+
+            // Redirect the user to the new URL
+            window.location.href = newUrl;
+        } else {
+            // Show a fallback message if parameters are missing
+            document.body.innerHTML = "<p>Error: No valid parameters provided.</p>";
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
